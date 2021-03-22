@@ -1,0 +1,35 @@
+<form [formGroup]="searchForm">
+  <div class="row">
+    <div class="col-xs-6 col-sm-4 col-xl-3">
+      <mat-form-field class="form-field" appearance="outline">
+        <mat-label>Game title</mat-label>
+        <input matInput formControlName="name" required>
+        <mat-error *ngIf="searchForm.controls.name.touched && searchForm.controls.name.invalid">
+          <span *ngIf="searchForm.controls.name.errors.required">This field is required.</span>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="col-xs-6 col-sm-4 col-xl-3">
+      <mat-form-field class="form-field" appearance="outline">
+        <mat-label>Platform</mat-label>
+        <mat-select formControlName="platform" (selectionChange)="search()">
+          <mat-option *ngFor="let platform of platforms" value="{{ platform.platformId }}">{{ platform.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="col-xs-6 col-sm-4 col-xl-3 search-button">
+      <button color="accent" mat-raised-button (click)="search()" [disabled]="!searchForm.valid">Search</button>
+    </div>
+  </div>
+</form>
+
+<div class="container">
+  <div class="row">
+    <div class="game-result" *ngFor="let searchResult of searchResults">
+      <app-game [game]="searchResult" [isCollection]="false" [owned]="isInCollection(searchResult.gameId)" (add)="addGame($event)"></app-game>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="game-container">
+  <div *ngIf="isCollection"  class="game-image-container">
+    <img *ngIf="game.imageUrl" src="{{ game.imageUrl }}" alt="Photo of game cover">
+    <img *ngIf="!game.imageUrl" src="../../assets/NoImageFound.png">
+  </div>
+
+  <div class="game-details">
+    <div class="game-title">{{ game.title }}</div>
+    <div class="game-platform">{{ game.platform }}</div>
+  </div>
+  <div class="get-cover">
+    <button mat-raised-button color="accent" (click)="getDetails(game)">Show details</button>
+  </div>
+  <div class="action-container">
+    <button mat-raised-button color="warn"  *ngIf="isCollection" (click)="delete.emit(game)">Delete</button>
+    <button mat-raised-button color="primary" *ngIf="!isCollection && !owned" (click)="add.emit(game)">Add</button>
+    <button mat-raised-button color="primary" [disabled]="true" *ngIf="owned">Owned</button>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+<mat-form-field class="example-form-field">
+  <mat-label>Filter games</mat-label>
+  <input matInput type="text" [(ngModel)]="searchFilter">
+  <button mat-button *ngIf="searchFilter" matSuffix mat-icon-button aria-label="Clear" (click)="searchFilter='';showFiltered=false">
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-form-field>
+
+<button color="accent" class="filter-button" mat-raised-button (click)="filterGames()" [disabled]="!searchFilter">Filter</button>
+
+<div class="container">
+  <div class="row">
+    <ng-container *ngIf="!showFiltered">
+      <div class="game-result" *ngFor="let game of games">
+        <app-game [game]="game" [isCollection]="true" (delete)="deleteGame($event)"></app-game>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="showFiltered">
+      <div class="game-result" *ngFor="let game of filteredGames">
+        <app-game [game]="game" [isCollection]="true" (delete)="deleteGame($event)"></app-game>
+      </div>
+      <div *ngIf="filteredGames.length === 0">There are no games in your collection that match the filter</div>
+    </ng-container>
+  </div>
+</div>

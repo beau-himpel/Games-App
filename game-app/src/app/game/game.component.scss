@@ -1,0 +1,43 @@
+.game-container {
+    flex-direction: column;
+    justify-content: center;
+    margin: 2rem 1rem;
+    & .game-image-container {
+        display: flex;
+        justify-content: center;
+        & img {
+            max-height: 192px;
+            }
+    }
+    & .game-details {
+        display: flex;
+        flex-direction: column;
+        // justify-content: center;
+        margin: 1rem 0;
+        & .game-title {
+            display: flex;
+            justify-content: space-around;
+            font-weight: 600;
+            font-size: 120%;
+            margin-bottom: .25rem;
+        }
+        & .game-platform {
+            display: flex;
+            justify-content: center;
+            font-style: italic;
+        }
+    }
+    & .get-cover {
+        display: flex;
+        justify-content: center;
+        margin: 1rem 0;
+    }
+    & .action-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 1rem;
+       & button:not(:first-child) {
+           margin-left: 1rem;
+       }
+    }
+}

@@ -1,0 +1,31 @@
+<div class="space-between">
+  <h2 class="mat-h2 title">{{ data.title }}</h2>
+  <span>
+    <mat-chip-list aria-label="Game platform">
+      <mat-chip color="primary" selected>{{ platform }}</mat-chip>
+    </mat-chip-list>
+  </span>
+</div>
+<div mat-dialog-content>
+  <div>
+    <span class="content-title">Release date</span>{{ data.releaseDate | date }}
+  </div>
+  <div>
+    <span class="content-title">Genres</span>
+    <span *ngFor="let genre of data.genres">{{ genre }} </span>
+  </div>
+  <div>
+    <span class="content-title">Publishers</span>
+    <span *ngFor="let publisher of data.publishers">{{ publisher }} </span>
+  </div>
+  <div>
+    <span class="content-title">Overview</span>{{ data.overview }}
+  </div>
+  <div class="game-image-container">
+    <img *ngIf="data.imageUrl" src="{{ data.imageUrl }}" alt="Photo of game cover">
+    <img *ngIf="!data.imageUrl" src="../../assets/NoImageFound.png">
+  </div>
+</div>
+<div mat-dialog-actions class="push-right">
+  <button mat-button mat-dialog-close>Close</button>
+</div>
