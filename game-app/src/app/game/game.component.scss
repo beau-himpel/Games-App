@@ -12,7 +12,6 @@
     & .game-details {
         display: flex;
         flex-direction: column;
-        // justify-content: center;
         margin: 1rem 0;
         & .game-title {
             display: flex;
@@ -20,11 +19,14 @@
             font-weight: 600;
             font-size: 120%;
             margin-bottom: .25rem;
+            min-height: 40px;
+            text-align: center;
         }
         & .game-platform {
             display: flex;
             justify-content: center;
             font-style: italic;
+            text-align: center;
         }
     }
     & .get-cover {
