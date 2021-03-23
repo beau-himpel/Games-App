@@ -4,7 +4,6 @@ import { AuthGuard } from './authGuard';
 const routes: Routes = [
   { path: "lazy", loadChildren: async () => (await import('./shared/shared.module')).SharedModule, canActivate: [AuthGuard] },
   { path: "login", loadChildren: async () => (await import('./login/login.module')).LoginModule },
-  { path: "test", loadChildren: async () => (await import('./login/login.module')).LoginModule },
   { path: '**', redirectTo: 'lazy/collection' },
 ];
 
