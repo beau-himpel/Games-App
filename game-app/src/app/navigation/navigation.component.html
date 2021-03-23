@@ -2,8 +2,8 @@
   <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
     [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
     <mat-nav-list>
-      <button mat-button (click)="navigate('/collection')" [disabled]="!isLoggedIn">My games</button>
-      <button mat-button (click)="navigate('/add')" [disabled]="!isLoggedIn">Add a game</button>
+      <button mat-button (click)="navigate('/lazy/collection')" [disabled]="!isLoggedIn">My games</button>
+      <button mat-button (click)="navigate('/lazy/add')" [disabled]="!isLoggedIn">Add a game</button>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>

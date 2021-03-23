@@ -30,7 +30,7 @@ export class LoginService {
       .pipe(map(user => {
         this.currentUserSubject.next(user.token);
         localStorage.setItem('currentUser', JSON.stringify(user.token));
-        this.router.navigate(['collection']);
+        this.router.navigate(['lazy/collection']);
         return user;
       }));
   }
